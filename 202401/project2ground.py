@@ -16,7 +16,7 @@ with open(file_path, "r") as file:
 
 
 # Create a file named after the RMSE value
-file_name = f"{file_path[:-4]}_ground.txt"
+file_name = f"{file_path[:-4]}_ground.xyz"
 # points_list2=points_list
 with open(file_name, "w") as output_file:
     for points in points_list:
