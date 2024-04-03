@@ -1,8 +1,8 @@
 import numpy as np
 import open3d as o3d
 
-input_path="/home/zhaoruifeng/improve3d/202401/evaluation/"
-output_path="/home/zhaoruifeng/improve3d/202401/evaluation/"
+input_path="/home/name/improve3d/202401/evaluation/"
+output_path="/home/name/improve3d/202401/evaluation/"
 dataname="5080_54435_5_final_cut_new_1_ground.xyzn"
 point_cloud= np.loadtxt(input_path+dataname,skiprows=1)
 
