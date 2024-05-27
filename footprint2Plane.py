@@ -50,8 +50,8 @@ def objLine2Plane(filepath):
     points=np.array(points)
     filebase= os.path.dirname(filepath)
     filename=os.path.basename(filepath)
-    t1_path=os.path.join(os.path.dirname(filebase),'09_homo',filename[:-14]+'_translation.npy')
-    t2_path=os.path.join(os.path.dirname(filebase),'09_homo',filename[:-14]+'_scale.npy')
+    t1_path=os.path.join(os.path.dirname(filebase),'09_homo',filename[:-18]+'_translation.npy')# @fred: [:18] need changed with differnt filename
+    t2_path=os.path.join(os.path.dirname(filebase),'09_homo',filename[:-18]+'_scale.npy')
 
     t1 = np.load(t1_path)
     t2 = np.load(t2_path)
@@ -63,6 +63,19 @@ def objLine2Plane(filepath):
 
     planeSavedPath=os.path.join(os.path.dirname(filebase),'08_footprint',filename[:-4]+'_FTplane.npy')
     np.save(planeSavedPath,plane)
+
+    footpintsObjSavedPath=os.path.join(os.path.dirname(filebase),'08_footprint',filename[:-4]+'_trans.obj')
+    with open(footpintsObjSavedPath,'w') as f:
+        for point in points_trans:
+            f.write('v ')
+            f.write(str(point[0])+' '+str(point[1])+' '+str(point[2]))
+            f.write('\n')
+        f.write('f ')
+        lenth=len(points_trans)
+        for i in range(lenth):
+            f.write(str(i+1)+' ')
+
+
     # print(plane)
     # print(points_trans)
 # 打印平面方程
